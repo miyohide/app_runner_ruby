@@ -3,7 +3,7 @@ runtime: ruby31
 build:
   commands:
     build:
-      - bundle install
+      - bin/setup
 run:
   command: bin/dev
   network:
