@@ -1,0 +1,13 @@
+[_]
+schema-version = "0.2"
+id = "myapprunnerrails"
+version = "0.1"
+
+[io.buildpacks]
+builder = "heroku/builder:22"
+exclude = [
+    ".git",
+    "node_modules",
+    "docs",
+    "README.md"
+]
