@@ -32,7 +32,7 @@ RUN bundle install --without test development
 COPY . /app
 
 # アセットのプリコンパイル
-RUN --mout=type=secret,id=master_key,target=config/master.key,required=true bin/rails assets:precompile \
+RUN --mount=type=secret,id=master_key,target=config/master.key,required=true bin/rails assets:precompile \
   && yarn cache clean \
   && rm -rf /app/node_modules /app/tmp/cache
 
