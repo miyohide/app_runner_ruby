@@ -3,6 +3,7 @@ FROM ruby:3.2.2
 
 ENV TZ Aisa/Tokyo
 ENV RAILS_ENV production
+ENV BUNDLE_WITHOUT development:test
 ENV BUNDLE_DEPLOYMENT true
 ENV RAILS_SERVE_STATIC_FILES true
 ENV RAILS_LOG_TO_STDOUT true
@@ -27,7 +28,7 @@ RUN rm -rf /var/lib/apt/lists/*
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 
-RUN bundle install --without test development
+RUN bundle install
 
 COPY . /app
 
