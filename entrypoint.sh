@@ -5,4 +5,6 @@ bin/rails db:migrate
 
 rm -f /app/tmp/pids/server.pid
 
-exec "$@"
+bin/rails server -b "0.0.0.0" -p 8080
+
+# exec "$@"
