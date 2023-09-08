@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:15.4-alpine
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POStGRES_DB=myapp_prod
+
+  web:
+    image: myapprunnerruby:0.0.1
+    ports:
+      - 8080:8080
+    env_file:
+      - production.env
+    depends_on:
+      - db
+
+volumes:
+  postgresql_data:
