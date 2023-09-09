@@ -10,13 +10,20 @@ services:
       - POStGRES_DB=myapp_prod
 
   web:
-    image: myapprunnerruby:0.0.1
+    build:
+      context: .
+      secrets:
+        - master_key
     ports:
       - 8080:8080
     env_file:
       - production.env
     depends_on:
       - db
+
+secrets:
+  master_key:
+    file: config/master.key
 
 volumes:
   postgresql_data:
