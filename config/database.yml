@@ -7,16 +7,16 @@ default: &default
 development:
   <<: *default
   database: myapp_dev
-  username: myapp
+  username: <%= ENV['MYAPP_DATABASE_USERNAME'] %>
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
-  host: localhost
+  host: <%= ENV['MYAPP_DATABASE_HOST'] %>
 
 test:
   <<: *default
   database: myapp_test
-  username: myapp
+  username: <%= ENV['MYAPP_DATABASE_USERNAME'] %>
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
-  host: localhost
+  host: <%= ENV['MYAPP_DATABASE_HOST'] %>
 
 production:
   <<: *default
